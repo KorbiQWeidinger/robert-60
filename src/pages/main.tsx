@@ -4,6 +4,7 @@ import { ViteLogo } from '@/components/logos/vite';
 import { ShadcnLogo } from '@/components/logos/shadcn';
 import { ModeToggle } from '../components/mode-toggle';
 import { Button } from '@/components/ui/button';
+import { MusicPlayer } from '@/components/music-player';
 
 export function Main() {
   const handleNavigateToRepo = () => {
@@ -17,7 +18,13 @@ export function Main() {
         <X className='h-8 w-8' />
         <ShadcnLogo width={90} height={90} />
       </div>
-      <h2 className='text-2xl font-bold mb-32'>Template</h2>
+      <h2 className='text-2xl font-bold mb-8'>Template</h2>
+      
+      {/* Music Player */}
+      <div className='mb-8'>
+        <MusicPlayer />
+      </div>
+      
       <Counter />
       <div className='m-12'>
         <ModeToggle />
