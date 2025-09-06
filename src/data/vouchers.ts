@@ -50,7 +50,7 @@ export const songs: Song[] = [
   {
     id: 5,
     title: "Der Barista aus der Au",
-    file: createAudioPath("espresso_1.mp3"),
+    file: createAudioPath("espresso_2.mp3"),
     voucherId: 3,
   },
 ];
