@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { ComicText } from "./comic-text";
 import confetti from "canvas-confetti";
 
