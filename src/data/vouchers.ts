@@ -14,6 +14,7 @@ export interface Voucher {
   details?: string;
   images: string[];
   songs: Song[];
+  signatures: string[];
 }
 
 export const songs: Song[] = [
@@ -43,14 +44,14 @@ export const songs: Song[] = [
   },
   {
     id: 5,
-    title: "Espresso Soul",
-    file: createAudioPath("espresso_1.mp3"),
+    title: "Der Barista aus der Au",
+    file: createAudioPath("espresso_2.mp3"),
     voucherId: 3,
   },
   {
-    id: 5,
-    title: "Der Barista aus der Au",
-    file: createAudioPath("espresso_2.mp3"),
+    id: 6,
+    title: "Espresso Soul",
+    file: createAudioPath("espresso_1.mp3"),
     voucherId: 3,
   },
 ];
@@ -61,36 +62,40 @@ export const vouchers: Voucher[] = [
     title: "Zürich Schokoladenfabrik",
     description: "Ein süßer Ausflug zur Schokoladenfabrik in Zürich",
     details:
-      "Besuche die berühmte Schokoladenfabrik in Zürich und lerne alles über die Herstellung von Schweizer Schokolade. Inklusive Verkostung und einem kleinen Geschenkpaket!",
+      "Lieber Papa, Sohn, Schwiegervater, besuche mit der coolen Familie die berühmte Schokoladenfabrik in Zürich und lerne mehr über die Herstellung der Schweizer Schokolade. Wir freuen uns auf ein spannendes Wochenende mit dir!",
+    signatures: ["Annemarie", "Albert", "Korbi", "Sabri"],
     images: [
       createImagePath("zuerich_1.png"),
       createImagePath("zuerich_2.png"),
+      createImagePath("zuerich_3.png"),
     ],
     songs: songs.filter((song) => song.voucherId === 1),
   },
   {
     id: 2,
-    title: "Radl-Abenteuer",
-    description: "Eine gemeinsame Radltour für Vater und Sohn",
+    title: "Barista-Kurs",
+    description: "Lerne die Kunst des perfekten Kaffees",
     details:
-      "Eine entspannte Radltour durch die schöne Landschaft. Perfekt für Vater und Sohn, um gemeinsam Zeit zu verbringen und die Natur zu genießen. Fahrräder werden gestellt!",
+      "Lieber Papa, wir gehen zusammen zum ZURINGA Home Barista Kurs! Damit du noch besser in die Kunst des perfekten Kaffees einsteigen kannst!",
+    images: [
+      createImagePath("espresso_3.png"),
+      createImagePath("espresso_1.png"),
+      createImagePath("espresso_2.png"),
+    ],
+    signatures: ["Korbi"],
+    songs: songs.filter((song) => song.voucherId === 3),
+  },
+  {
+    id: 3,
+    title: "Radl-Abenteuer",
+    description: "Eine gemeinsame Radltour",
+    details: `Lieber Papa, unsere letzte Radtour ist zu lange her! Und du hast gleich zwei tolle neue Fahrräder! Also ist es Zeit für eine "gemütliche" Radtour! Vielleicht lässt sich diese ja gut mit Zürich verbinden.`,
     images: [
       createImagePath("radl_1.png"),
       createImagePath("radl_2.png"),
       createImagePath("radl_3.png"),
     ],
+    signatures: ["Korbi"],
     songs: songs.filter((song) => song.voucherId === 2),
-  },
-  {
-    id: 3,
-    title: "Barista-Kurs",
-    description: "Lerne die Kunst des perfekten Kaffees",
-    details:
-      "Entdecke die Geheimnisse der Kaffeezubereitung! In diesem Kurs lernst du, wie man den perfekten Espresso, Cappuccino und Latte Art zubereitet. Inklusive Verkostung verschiedener Kaffeesorten.",
-    images: [
-      createImagePath("espresso_1.png"),
-      createImagePath("espresso_2.png"),
-    ],
-    songs: songs.filter((song) => song.voucherId === 3),
   },
 ];

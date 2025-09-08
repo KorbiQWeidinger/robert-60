@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Signature } from "@/components/ui/signature";
 import { ImageCarousel } from "./image-carousel";
 import { CompactMusicPlayer } from "./compact-music-player";
 import { TitleCard } from "./title-card";
@@ -54,7 +55,7 @@ export function VoucherDisplay() {
   }
 
   return (
-    <div className="min-h-screen bg-background flex flex-col items-center justify-center p-4">
+    <div className="min-h-screen bg-background flex flex-col items-center justify-center p-4 overflow-x-hidden">
       <div className="w-full max-w-4xl mx-auto">
         {/* Image Card with Neon Gradient Border */}
         <NeonGradientCard
@@ -96,12 +97,12 @@ export function VoucherDisplay() {
             }`}
             style={{ transformStyle: "preserve-3d" }}
           >
-            <div className="w-full h-full bg-card rounded-[13px] overflow-y-auto">
+            <div className="w-full h-full bg-card rounded-[13px] overflow-y-auto overflow-x-hidden">
               <div className="min-h-full flex flex-col items-center justify-center p-6 sm:p-8 lg:p-12">
-                <div className="max-w-2xl mx-auto text-center space-y-6">
+                <div className="w-full max-w-2xl mx-auto text-center space-y-6">
                   <div className="flex justify-center">
                     <ComicText
-                      fontSize={2}
+                      fontSize={1.6}
                       className="text-primary text-md sm:text-xl lg:text-2xl"
                     >
                       {`${currentVoucher.title}`}
@@ -113,11 +114,33 @@ export function VoucherDisplay() {
 
                     {currentVoucher.details && (
                       <div className="rounded-lg p-4 sm:p-6">
-                        <p className="text-muted-foreground">
+                        <p className="text-muted-foreground break-words">
                           {currentVoucher.details}
                         </p>
                       </div>
                     )}
+
+                    {/* Signatures Section */}
+                    {currentVoucher.signatures &&
+                      currentVoucher.signatures.length > 0 && (
+                        <div className="mt-8">
+                          <h3 className="text-lg font-semibold mb-4 text-center">
+                            Mit Liebe von
+                          </h3>
+                          <div className="flex flex-wrap justify-center gap-3 max-w-full">
+                            {currentVoucher.signatures.map(
+                              (signature, index) => (
+                                <Signature
+                                  key={index}
+                                  name={signature}
+                                  variant="accent"
+                                  size="sm"
+                                />
+                              )
+                            )}
+                          </div>
+                        </div>
+                      )}
                   </div>
                 </div>
               </div>
