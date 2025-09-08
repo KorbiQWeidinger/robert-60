@@ -88,7 +88,7 @@ export function VoucherDisplay() {
             style={{ transformStyle: "preserve-3d" }}
           >
             <div className="w-full h-full rounded-[13px] overflow-hidden">
-              <ImageCarousel images={currentVoucher.images} />
+              <ImageCarousel media={currentVoucher.images} />
             </div>
           </div>
 

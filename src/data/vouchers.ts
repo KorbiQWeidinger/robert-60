@@ -91,7 +91,7 @@ export const vouchers: Voucher[] = [
     description: "Eine gemeinsame Radltour",
     details: `Lieber Papa, unsere letzte Radtour ist zu lange her! Und du hast gleich zwei tolle neue Fahrräder! Also ist es Zeit für eine "gemütliche" Radtour! Vielleicht lässt sich diese ja gut mit Zürich verbinden.`,
     images: [
-      createImagePath("radl_1.png"),
+      createImagePath("radl_1.mp4"),
       createImagePath("radl_2.png"),
       createImagePath("radl_3.png"),
     ],
