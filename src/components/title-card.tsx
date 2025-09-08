@@ -32,9 +32,6 @@ export function TitleCard({ onOpen }: TitleCardProps) {
         <div className="text-center space-y-4 sm:space-y-6 lg:space-y-8 py-4 sm:py-8 lg:py-12 px-2 sm:px-4 h-full overflow-y-auto">
           {/* Birthday Title with Comic Text */}
           <div className="space-y-2 sm:space-y-3 lg:space-y-4">
-            <div className="text-center text-2xl sm:text-3xl lg:text-4xl">
-              🎁 🎉
-            </div>
             <ComicText
               fontSize={1.8}
               className="text-center text-lg sm:text-xl lg:text-2xl"

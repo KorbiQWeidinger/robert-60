@@ -48,7 +48,7 @@ function Signature({
       {...props}
     >
       <span
-        className="font-signature text-foreground/90 break-words italic"
+        className="font-signature text-foreground/90 break-words italic text-2xl lg:text-4xl"
         style={{ fontFamily: "Brush Script MT, cursive, handwriting" }}
       >
         {name}
