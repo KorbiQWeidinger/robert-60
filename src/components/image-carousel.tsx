@@ -7,7 +7,7 @@ interface ImageCarouselProps {
 
 export function ImageCarousel({
   images,
-  autoPlayInterval = 3000,
+  autoPlayInterval = 6000,
 }: ImageCarouselProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -58,23 +58,6 @@ export function ImageCarousel({
           }}
         />
       </div>
-
-      {/* Image indicators */}
-      {images.length > 1 && (
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
-          {images.map((_, index) => (
-            <button
-              key={index}
-              className={`w-3 h-3 rounded-full transition-colors ${
-                index === currentImageIndex
-                  ? "bg-white shadow-lg"
-                  : "bg-white/50"
-              }`}
-              onClick={() => setCurrentImageIndex(index)}
-            />
-          ))}
-        </div>
-      )}
     </div>
   );
 }

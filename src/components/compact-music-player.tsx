@@ -55,68 +55,66 @@ export function CompactMusicPlayer({
   }
 
   return (
-    <div className="w-full max-w-md mx-auto">
-      <NeonGradientCard
-        className="w-full"
-        borderSize={2}
-        borderRadius={12}
-        neonColors={{
-          firstColor: "#ff6b6b",
-          secondColor: "#4ecdc4",
-        }}
-      >
-        <div className="flex items-center justify-center gap-2 p-3">
-          <audio
-            ref={audioRef}
-            src={currentSong.file}
-            onEnded={handleSongEnd}
-            preload="auto"
-          />
+    <NeonGradientCard
+      className="w-full"
+      borderSize={2}
+      borderRadius={12}
+      neonColors={{
+        firstColor: "#ff6b6b",
+        secondColor: "#4ecdc4",
+      }}
+    >
+      <div className="flex-col sm:flex sm:flex-row items-center justify-center gap-2">
+        <audio
+          ref={audioRef}
+          src={currentSong.file}
+          onEnded={handleSongEnd}
+          preload="auto"
+        />
 
-          {/* Song Title */}
-          <div className="flex-1 text-center">
-            <span className="text-sm font-medium truncate block">
-              {currentSong.title}
-            </span>
-          </div>
+        {/* Song Title */}
+        <div className="flex-1 text-center">
+          <span className="text-sm font-medium truncate block">
+            {currentSong.title}
+          </span>
+        </div>
 
-          {/* Controls */}
-          <div className="flex items-center gap-1">
-            {songs.length > 1 && (
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={previousSong}
-                className="p-1 h-8 w-8 cursor-pointer"
-              >
-                <SkipBack className="h-3 w-3" />
-              </Button>
-            )}
-
+        {/* Controls */}
+        <div className="flex items-center justify-center gap-2 pt-3 sm:pt-0">
+          {songs.length > 1 && (
             <Button
-              onClick={togglePlayPause}
+              variant="outline"
+              size="sm"
+              onClick={previousSong}
               className="p-1 h-8 w-8 cursor-pointer"
             >
-              {isPlaying ? (
-                <Pause className="h-3 w-3" />
-              ) : (
-                <Play className="h-3 w-3" />
-              )}
+              <SkipBack className="h-3 w-3" />
             </Button>
+          )}
 
-            {songs.length > 1 && (
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={nextSong}
-                className="p-1 h-8 w-8 cursor-pointer"
-              >
-                <SkipForward className="h-3 w-3" />
-              </Button>
+          <Button
+            onClick={togglePlayPause}
+            className="p-1 h-8 w-8 cursor-pointer"
+          >
+            {isPlaying ? (
+              <Pause className="h-3 w-3" />
+            ) : (
+              <Play className="h-3 w-3" />
             )}
-          </div>
+          </Button>
+
+          {songs.length > 1 && (
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={nextSong}
+              className="p-1 h-8 w-8 cursor-pointer"
+            >
+              <SkipForward className="h-3 w-3" />
+            </Button>
+          )}
         </div>
-      </NeonGradientCard>
-    </div>
+      </div>
+    </NeonGradientCard>
   );
 }

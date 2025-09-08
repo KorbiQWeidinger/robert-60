@@ -58,7 +58,7 @@ export function VoucherDisplay() {
       <div className="w-full max-w-4xl mx-auto">
         {/* Image Card with Neon Gradient Border */}
         <NeonGradientCard
-          className="relative aspect-[4/3] sm:aspect-[3/2] lg:aspect-[4/3]"
+          className="relative aspect-[3/4] sm:aspect-[3/2] lg:aspect-[4/3]"
           borderSize={3}
           borderRadius={16}
           neonColors={{
@@ -73,7 +73,7 @@ export function VoucherDisplay() {
             onClick={toggleFlip}
             className="absolute top-4 right-4 z-20 bg-background/80 backdrop-blur-sm cursor-pointer"
           >
-            <RotateCcw className="h-4 w-4 mr-2" />
+            <RotateCcw className="h-4 w-4 sm:mr-2" />
             <span className="hidden sm:inline">Wenden</span>
           </Button>
 
@@ -96,24 +96,29 @@ export function VoucherDisplay() {
             }`}
             style={{ transformStyle: "preserve-3d" }}
           >
-            <div className="w-full h-full bg-card rounded-[13px] flex flex-col items-center justify-center p-6 sm:p-8 lg:p-12">
-              <div className="max-w-2xl mx-auto text-center space-y-6">
-                <div className="flex justify-center">
-                  <ComicText fontSize={2.5} className="text-primary">
-                    {`🎁 ${currentVoucher.title}`}
-                  </ComicText>
-                </div>
+            <div className="w-full h-full bg-card rounded-[13px] overflow-y-auto">
+              <div className="min-h-full flex flex-col items-center justify-center p-6 sm:p-8 lg:p-12">
+                <div className="max-w-2xl mx-auto text-center space-y-6">
+                  <div className="flex justify-center">
+                    <ComicText
+                      fontSize={2}
+                      className="text-primary text-md sm:text-xl lg:text-2xl"
+                    >
+                      {`${currentVoucher.title}`}
+                    </ComicText>
+                  </div>
 
-                <div className="space-y-4 text-base sm:text-lg lg:text-xl">
-                  <p className="font-medium">{currentVoucher.description}</p>
+                  <div className="space-y-4 text-base sm:text-lg lg:text-xl">
+                    <p className="font-medium">{currentVoucher.description}</p>
 
-                  {currentVoucher.details && (
-                    <div className="rounded-lg p-4 sm:p-6">
-                      <p className="text-muted-foreground">
-                        {currentVoucher.details}
-                      </p>
-                    </div>
-                  )}
+                    {currentVoucher.details && (
+                      <div className="rounded-lg p-4 sm:p-6">
+                        <p className="text-muted-foreground">
+                          {currentVoucher.details}
+                        </p>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
@@ -123,23 +128,27 @@ export function VoucherDisplay() {
         {/* Bottom Section - Music Player and Next Button */}
         <div className="mt-8">
           {/* Music Player and Next Present Button */}
-          <div className="flex justify-center items-center gap-6">
+          <div className="sm:flex sm:flex-row flex-col justify-between items-center gap-6">
             {/* Music Player */}
-            {currentVoucher.songs.length > 0 && (
-              <CompactMusicPlayer
-                key={`voucher-${currentVoucherIndex}-song-${currentSongIndex}`}
-                songs={currentVoucher.songs}
-                currentSongIndex={currentSongIndex}
-                setCurrentSongIndex={setCurrentSongIndex}
-              />
-            )}
+            <div className="flex-1">
+              {currentVoucher.songs.length > 0 && (
+                <CompactMusicPlayer
+                  key={`voucher-${currentVoucherIndex}-song-${currentSongIndex}`}
+                  songs={currentVoucher.songs}
+                  currentSongIndex={currentSongIndex}
+                  setCurrentSongIndex={setCurrentSongIndex}
+                />
+              )}
+            </div>
 
             {/* Next Present Button */}
-            <PresentOpening
-              onClick={nextVoucher}
-              disabled={isLoadingNext}
-              isOpening={isLoadingNext}
-            />
+            <div className="flex justify-center pt-10 sm:pt-0">
+              <PresentOpening
+                onClick={nextVoucher}
+                disabled={isLoadingNext}
+                isOpening={isLoadingNext}
+              />
+            </div>
           </div>
         </div>
       </div>

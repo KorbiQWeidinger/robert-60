@@ -153,134 +153,39 @@
 }
 
 /* Gift Box Animations */
-@keyframes gift-wiggle {
-  0% {
-    transform: rotate(0deg) translateY(0px);
-  }
-  10% {
-    transform: rotate(3deg) translateY(-2px);
-  }
-  20% {
-    transform: rotate(-3deg) translateY(-4px);
-  }
-  30% {
-    transform: rotate(2deg) translateY(-2px);
-  }
-  40% {
-    transform: rotate(-1deg) translateY(0px);
-  }
-  50% {
-    transform: rotate(0deg) translateY(0px);
-  }
-  60% {
-    transform: rotate(0deg) translateY(-8px);
-  }
-  70% {
-    transform: rotate(0deg) translateY(-12px);
-  }
-  80% {
-    transform: rotate(0deg) translateY(-6px);
-  }
-  90% {
-    transform: rotate(0deg) translateY(-2px);
-  }
-  100% {
-    transform: rotate(0deg) translateY(0px);
-  }
-}
-
-@keyframes gift-box-open {
-  0% {
-    top: 0px;
-    opacity: 1;
-  }
-  100% {
-    top: -50px;
-    opacity: 0;
-  }
-}
-
-@keyframes gift-box-down {
-  0% {
-    top: 0px;
-    opacity: 1;
-  }
-  100% {
-    top: 50px;
-    opacity: 0;
-  }
-}
-
-.gift-wiggle {
-  animation: gift-wiggle 1s ease-in-out;
-}
-
-.gift-box-open {
-  animation: gift-box-open 1s ease-in-out forwards;
-}
-
-.gift-box-down {
-  animation: gift-box-down 1s ease-in-out forwards;
-}
-
 @keyframes gift-subtle-wiggle {
-  0% {
-    transform: rotate(0deg) translateY(0px);
+  0%,
+  100% {
+    transform: rotate(0deg);
   }
   25% {
-    transform: rotate(0.5deg) translateY(-1px);
-  }
-  50% {
-    transform: rotate(0deg) translateY(0px);
+    transform: rotate(1deg);
   }
   75% {
-    transform: rotate(-0.5deg) translateY(-1px);
-  }
-  100% {
-    transform: rotate(0deg) translateY(0px);
+    transform: rotate(-1deg);
   }
 }
 
 @keyframes gift-wiggle-strong {
-  0% {
-    transform: rotate(0deg) translateY(0px);
+  0%,
+  100% {
+    transform: rotate(0deg) scale(1);
   }
-  10% {
-    transform: rotate(5deg) translateY(-3px);
-  }
-  20% {
-    transform: rotate(-5deg) translateY(-6px);
-  }
-  30% {
-    transform: rotate(3deg) translateY(-3px);
-  }
-  40% {
-    transform: rotate(-2deg) translateY(0px);
+  25% {
+    transform: rotate(3deg) scale(1.05);
   }
   50% {
-    transform: rotate(0deg) translateY(0px);
+    transform: rotate(-3deg) scale(1.05);
   }
-  60% {
-    transform: rotate(0deg) translateY(-10px);
-  }
-  70% {
-    transform: rotate(0deg) translateY(-15px);
-  }
-  80% {
-    transform: rotate(0deg) translateY(-8px);
-  }
-  90% {
-    transform: rotate(0deg) translateY(-3px);
-  }
-  100% {
-    transform: rotate(0deg) translateY(0px);
+  75% {
+    transform: rotate(2deg) scale(1.02);
   }
 }
 
 .gift-subtle-wiggle {
-  animation: gift-subtle-wiggle 3s ease-in-out infinite;
+  animation: gift-subtle-wiggle 2s ease-in-out infinite;
 }
 
 .gift-wiggle-strong {
-  animation: gift-wiggle-strong 0.8s ease-in-out;
+  animation: gift-wiggle-strong 0.6s ease-in-out;
 }

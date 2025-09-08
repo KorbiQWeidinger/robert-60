@@ -87,7 +87,10 @@ export const vouchers: Voucher[] = [
     description: "Lerne die Kunst des perfekten Kaffees",
     details:
       "Entdecke die Geheimnisse der Kaffeezubereitung! In diesem Kurs lernst du, wie man den perfekten Espresso, Cappuccino und Latte Art zubereitet. Inklusive Verkostung verschiedener Kaffeesorten.",
-    images: [createImagePath("espresso_1.png")],
+    images: [
+      createImagePath("espresso_1.png"),
+      createImagePath("espresso_2.png"),
+    ],
     songs: songs.filter((song) => song.voucherId === 3),
   },
 ];
