@@ -13,7 +13,7 @@ const isVideo = (url: string): boolean => {
 
 export function ImageCarousel({
   media,
-  autoPlayInterval = 6000,
+  autoPlayInterval = 5000,
 }: MediaCarouselProps) {
   const [currentMediaIndex, setCurrentMediaIndex] = useState(0);
 
@@ -79,12 +79,20 @@ export function ImageCarousel({
         {isCurrentMediaVideo ? (
           <video
             src={currentMedia}
-            className="max-w-full max-h-full object-contain transition-opacity duration-500"
-            controls
+            className="max-w-full max-h-full object-contain transition-opacity duration-500 cursor-pointer"
             autoPlay
             muted
             loop
             playsInline
+            onClick={(e) => {
+              // Toggle play/pause on click/tap
+              const video = e.target as HTMLVideoElement;
+              if (video.paused) {
+                video.play();
+              } else {
+                video.pause();
+              }
+            }}
             onError={(e) => {
               // Fallback for missing videos
               const target = e.target as HTMLVideoElement;

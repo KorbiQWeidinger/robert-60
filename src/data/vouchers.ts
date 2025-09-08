@@ -65,7 +65,7 @@ export const vouchers: Voucher[] = [
       "Lieber Papa, Sohn, Schwiegervater, besuche mit der coolen Familie die berühmte Schokoladenfabrik in Zürich und lerne mehr über die Herstellung der Schweizer Schokolade. Wir freuen uns auf ein spannendes Wochenende mit dir!",
     signatures: ["Annemarie", "Albert", "Korbi", "Sabri"],
     images: [
-      createImagePath("zuerich_1.png"),
+      createImagePath("zuerich_1.mp4"),
       createImagePath("zuerich_2.png"),
       createImagePath("zuerich_3.png"),
     ],
@@ -91,8 +91,8 @@ export const vouchers: Voucher[] = [
     description: "Eine gemeinsame Radltour",
     details: `Lieber Papa, unsere letzte Radtour ist zu lange her! Und du hast gleich zwei tolle neue Fahrräder! Also ist es Zeit für eine "gemütliche" Radtour! Vielleicht lässt sich diese ja gut mit Zürich verbinden.`,
     images: [
-      createImagePath("radl_1.mp4"),
-      createImagePath("radl_2.png"),
+      createImagePath("radl_1.png"),
+      createImagePath("radl_2.mp4"),
       createImagePath("radl_3.png"),
     ],
     signatures: ["Korbi"],
