@@ -42,15 +42,21 @@ export function ImageCarousel({
     <div className="relative w-full h-full overflow-hidden">
       {/* Blurred background - for both images and videos */}
       {isCurrentMediaVideo ? (
-        <div className="absolute inset-0 w-full h-full overflow-hidden">
+        <div className="absolute inset-0 w-full h-full overflow-hidden bg-gray-300">
           <video
             src={currentMedia}
-            className="absolute inset-0 w-full h-full object-cover blur-sm scale-110 transition-opacity duration-500"
+            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500"
             style={{
-              filter: "blur(4px)",
-              transform: "scale(1.1)",
-              WebkitFilter: "blur(4px)",
-              WebkitTransform: "scale(1.1)",
+              filter: "blur(12px) brightness(0.7)",
+              WebkitFilter: "blur(12px) brightness(0.7)",
+              transform: "scale(1.2)",
+              WebkitTransform: "scale(1.2)",
+              position: "absolute",
+              top: "-10%",
+              left: "-10%",
+              width: "120%",
+              height: "120%",
+              objectFit: "cover",
             }}
             muted
             loop
