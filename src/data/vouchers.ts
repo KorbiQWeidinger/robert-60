@@ -66,8 +66,8 @@ export const vouchers: Voucher[] = [
     signatures: ["Annemarie", "Albert", "Korbi", "Sabri"],
     images: [
       createImagePath("zuerich_1.mp4"),
-      createImagePath("zuerich_2.png"),
-      createImagePath("zuerich_3.png"),
+      createImagePath("zuerich_2.mp4"),
+      createImagePath("zuerich_3.mp4"),
     ],
     songs: songs.filter((song) => song.voucherId === 1),
   },
@@ -78,9 +78,9 @@ export const vouchers: Voucher[] = [
     details:
       "Lieber Papa, wir gehen zusammen zum ZURINGA Home Barista Kurs! Damit du noch besser in die Kunst des perfekten Kaffees einsteigen kannst!",
     images: [
-      createImagePath("espresso_3.png"),
-      createImagePath("espresso_1.png"),
-      createImagePath("espresso_2.png"),
+      createImagePath("espresso_3.mp4"),
+      createImagePath("espresso_1.mp4"),
+      createImagePath("espresso_2.mp4"),
     ],
     signatures: ["Korbi"],
     songs: songs.filter((song) => song.voucherId === 3),
@@ -91,9 +91,9 @@ export const vouchers: Voucher[] = [
     description: "Eine gemeinsame Radltour",
     details: `Lieber Papa, unsere letzte Radtour ist zu lange her! Und du hast gleich zwei tolle neue Fahrräder! Also ist es Zeit für eine "gemütliche" Radtour! Vielleicht lässt sich diese ja gut mit Zürich verbinden.`,
     images: [
-      createImagePath("radl_1.png"),
+      createImagePath("radl_1.mp4"),
       createImagePath("radl_2.mp4"),
-      createImagePath("radl_3.png"),
+      createImagePath("radl_3.mp4"),
     ],
     signatures: ["Korbi"],
     songs: songs.filter((song) => song.voucherId === 2),
