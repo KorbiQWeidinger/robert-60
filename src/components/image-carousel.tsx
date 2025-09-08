@@ -11,6 +11,12 @@ const isVideo = (url: string): boolean => {
   return videoExtensions.some((ext) => url.toLowerCase().includes(ext));
 };
 
+// Helper function to get thumbnail image path from video path
+const getVideoThumbnail = (videoUrl: string): string => {
+  // Replace video extension with image extension
+  return videoUrl.replace(/\.(mp4|webm|ogg|mov|avi|mkv)$/i, ".png");
+};
+
 export function ImageCarousel({
   media,
   autoPlayInterval = 5000,
@@ -42,39 +48,17 @@ export function ImageCarousel({
     <div className="relative w-full h-full overflow-hidden">
       {/* Blurred background - for both images and videos */}
       {isCurrentMediaVideo ? (
-        <div className="absolute inset-0 w-full h-full overflow-hidden bg-gray-300">
-          <video
-            src={currentMedia}
-            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500"
-            style={{
-              filter: "blur(12px) brightness(0.7)",
-              WebkitFilter: "blur(12px) brightness(0.7)",
-              transform: "scale(1.2)",
-              WebkitTransform: "scale(1.2)",
-              position: "absolute",
-              top: "-10%",
-              left: "-10%",
-              width: "120%",
-              height: "120%",
-              objectFit: "cover",
-            }}
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            onError={(e) => {
-              // Fallback for missing videos
-              const target = e.target as HTMLVideoElement;
-              target.style.display = "none";
-              const fallbackDiv = document.createElement("div");
-              fallbackDiv.className =
-                "absolute inset-0 w-full h-full bg-gray-200 flex items-center justify-center";
-              fallbackDiv.innerHTML =
-                '<span class="text-gray-500">Video nicht verfügbar</span>';
-              target.parentNode?.appendChild(fallbackDiv);
-            }}
-          />
-        </div>
+        <img
+          src={getVideoThumbnail(currentMedia)}
+          alt={`Video thumbnail background`}
+          className="absolute inset-0 w-full h-full object-cover blur-sm scale-110 transition-opacity duration-500"
+          onError={(e) => {
+            // Fallback for missing thumbnail images
+            const target = e.target as HTMLImageElement;
+            target.src =
+              "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjNmNGY2Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOCIgZmlsbD0iIzk5YTNhZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkJpbGQgY29taW5nIHNvb24uLi48L3RleHQ+PC9zdmc+";
+          }}
+        />
       ) : (
         <img
           src={currentMedia}
