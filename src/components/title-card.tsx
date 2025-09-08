@@ -19,7 +19,7 @@ export function TitleCard({ onOpen }: TitleCardProps) {
   };
 
   return (
-    <div className="min-h-screen bg-background flex flex-col items-center justify-center p-2 sm:p-4">
+    <div className="min-h-screen bg-background flex flex-col items-center justify-center p-6 sm:p-4">
       <NeonGradientCard
         className="w-full max-w-5xl mx-auto"
         neonColors={{

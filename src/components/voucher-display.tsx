@@ -61,7 +61,7 @@ export function VoucherDisplay() {
       <div className="w-full max-w-4xl mx-auto">
         {/* Image Card with Neon Gradient Border */}
         <NeonGradientCard
-          className="relative aspect-[3/4] sm:aspect-[3/2] lg:aspect-[4/3]"
+          className="relative aspect-[4/5] sm:aspect-[3/2] lg:aspect-[4/3]"
           borderSize={3}
           borderRadius={16}
           neonColors={{
