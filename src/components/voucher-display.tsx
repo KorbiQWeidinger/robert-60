@@ -57,7 +57,7 @@ export function VoucherDisplay() {
   }
 
   return (
-    <div className="min-h-screen bg-background flex flex-col items-center justify-center p-4 overflow-x-hidden">
+    <div className="min-h-screen bg-background flex flex-col items-center justify-center p-6 overflow-x-hidden">
       <div className="w-full max-w-4xl mx-auto">
         {/* Image Card with Neon Gradient Border */}
         <NeonGradientCard
