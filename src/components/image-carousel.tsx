@@ -19,7 +19,7 @@ const getVideoThumbnail = (videoUrl: string): string => {
 
 export function ImageCarousel({
   media,
-  autoPlayInterval = 5000,
+  autoPlayInterval = 6000,
 }: MediaCarouselProps) {
   const [currentMediaIndex, setCurrentMediaIndex] = useState(0);
 
@@ -83,6 +83,10 @@ export function ImageCarousel({
             muted
             loop
             playsInline
+            onLoadedMetadata={(e) => {
+              const video = e.target as HTMLVideoElement;
+              video.playbackRate = 0.75;
+            }}
             onClick={(e) => {
               // Toggle play/pause on click/tap
               const video = e.target as HTMLVideoElement;
