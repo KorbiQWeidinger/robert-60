@@ -10,6 +10,7 @@ import { ConfettiRef } from "./magicui/confetti";
 import { ComicText } from "./magicui/comic-text";
 import { PresentOpening } from "./magicui/present-opening";
 import { vouchers } from "@/data/vouchers";
+import { useIsLargeScreen } from "@/hooks/useBreakpoint";
 
 export function VoucherDisplay() {
   const [showVouchers, setShowVouchers] = useState(false);
@@ -18,6 +19,7 @@ export function VoucherDisplay() {
   const [isFlipped, setIsFlipped] = useState(false);
   const [isLoadingNext, setIsLoadingNext] = useState(false);
   const confettiRef = useRef<ConfettiRef>(null);
+  const isLargeScreen = useIsLargeScreen();
 
   const currentVoucher = vouchers[currentVoucherIndex];
 
@@ -102,7 +104,7 @@ export function VoucherDisplay() {
                 <div className="w-full max-w-2xl mx-auto text-center space-y-6">
                   <div className="flex justify-center">
                     <ComicText
-                      fontSize={1.6}
+                      fontSize={isLargeScreen ? 2.2 : 1.6}
                       className="text-primary text-md sm:text-xl lg:text-2xl"
                     >
                       {`${currentVoucher.title}`}
