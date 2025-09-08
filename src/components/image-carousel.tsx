@@ -42,24 +42,33 @@ export function ImageCarousel({
     <div className="relative w-full h-full overflow-hidden">
       {/* Blurred background - for both images and videos */}
       {isCurrentMediaVideo ? (
-        <video
-          src={currentMedia}
-          className="absolute inset-0 w-full h-full object-cover blur-sm scale-110 transition-opacity duration-500"
-          muted
-          loop
-          playsInline
-          onError={(e) => {
-            // Fallback for missing videos
-            const target = e.target as HTMLVideoElement;
-            target.style.display = "none";
-            const fallbackDiv = document.createElement("div");
-            fallbackDiv.className =
-              "absolute inset-0 w-full h-full bg-gray-200 flex items-center justify-center";
-            fallbackDiv.innerHTML =
-              '<span class="text-gray-500">Video nicht verfügbar</span>';
-            target.parentNode?.appendChild(fallbackDiv);
-          }}
-        />
+        <div className="absolute inset-0 w-full h-full overflow-hidden">
+          <video
+            src={currentMedia}
+            className="absolute inset-0 w-full h-full object-cover blur-sm scale-110 transition-opacity duration-500"
+            style={{
+              filter: "blur(4px)",
+              transform: "scale(1.1)",
+              WebkitFilter: "blur(4px)",
+              WebkitTransform: "scale(1.1)",
+            }}
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            onError={(e) => {
+              // Fallback for missing videos
+              const target = e.target as HTMLVideoElement;
+              target.style.display = "none";
+              const fallbackDiv = document.createElement("div");
+              fallbackDiv.className =
+                "absolute inset-0 w-full h-full bg-gray-200 flex items-center justify-center";
+              fallbackDiv.innerHTML =
+                '<span class="text-gray-500">Video nicht verfügbar</span>';
+              target.parentNode?.appendChild(fallbackDiv);
+            }}
+          />
+        </div>
       ) : (
         <img
           src={currentMedia}
